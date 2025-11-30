@@ -1,0 +1,43 @@
+/* Reset CSS básico */
+
+/* Reset de margens e paddings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset de imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reset de botões */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Reset de inputs */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}

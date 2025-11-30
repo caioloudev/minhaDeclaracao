@@ -1,0 +1,97 @@
+/* Estilos específicos para a página inicial (home) */
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  margin: auto;
+  max-width: 400px;
+  transition: border-color 0.3s ease;
+}
+
+.hero-container:has(.btn-carta:hover) {
+  border-color: var(--pink-baby);
+}
+
+.hero-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.btn-carta {
+  background-color: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-carta:hover {
+  background-color: var(--pink-baby);
+  border-color: var(--pink-baby);
+  color: #0a0a0a; /* Texto escuro no hover para contraste */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 192, 208, 0.4);
+}
+
+.btn-carta:active {
+  transform: translateY(0);
+}
+
+/* Estilos para palavras flutuantes com brilho */
+.floating-word {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0.5;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 1.2rem;
+  font-weight: 300;
+  opacity: 0;
+  user-select: none;
+  white-space: nowrap;
+  transition: opacity 2.5s ease-in-out;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.floating-word.visible {
+  opacity: 1;
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-message {
+    font-size: 1.25rem;
+  }
+
+  .btn-carta {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}

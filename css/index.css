@@ -1,0 +1,65 @@
+/* Arquivo principal de estilos - Importa todos os estilos do projeto */
+
+/* Reset e estilos base */
+@import url("reset.css");
+
+/* Estilos de componentes */
+@import url("header.css");
+@import url("footer.css");
+@import url("main.css");
+@import url("buttons.css");
+@import url("forms.css");
+@import url("home.css");
+
+/* Estilos globais e variáveis podem ser adicionados aqui */
+:root {
+  /* Paleta Escura - Cores principais */
+  --bg-primary: #0a0a0a; /* Preto quase puro - fundo principal */
+  --bg-secondary: #1a1a1a; /* Cinza muito escuro - elementos secundários */
+  --bg-tertiary: #121212; /* Cinza escuro - footer/cards */
+  --bg-elevated: #242424; /* Cinza médio escuro - elementos elevados */
+
+  /* Cores de texto */
+  --text-primary: #ffffff; /* Branco - texto principal */
+  --text-secondary: #e0e0e0; /* Cinza claro - texto secundário */
+  --text-tertiary: #b3b3b3; /* Cinza médio - texto terciário */
+  --text-muted: #888888; /* Cinza - texto desativado */
+
+  /* Cores de borda */
+  --border-color: #333333; /* Cinza escuro - bordas padrão */
+  --border-hover: #444444; /* Cinza médio - bordas hover */
+
+  /* Cores de acento */
+  --primary-color: #4a9eff; /* Azul brilhante */
+  --secondary-color: #888888; /* Cinza */
+  --success-color: #4caf50; /* Verde */
+  --danger-color: #f44336; /* Vermelho */
+  --warning-color: #ff9800; /* Laranja */
+  --pink-baby: #f5c0d0; /* Rosa bebê */
+
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html {
+  scroll-behavior: smooth;
+}
