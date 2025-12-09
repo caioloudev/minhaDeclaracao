@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Declaração - Carta</title>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body class="carta-page">
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <span class="heart-icon">💕</span>
+          Minha Declaração
+          <span class="heart-icon">💕</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Nuvens de fundo (modo claro) -->
+      <div class="clouds-container">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+        <div class="cloud cloud5"></div>
+      </div>
+
+      <!-- Corações decorativos espalhados pela página -->
+      <div class="decorative-hearts">
+        <span class="decor-heart">💖</span>
+        <span class="decor-heart">💕</span>
+        <span class="decor-heart">💝</span>
+        <span class="decor-heart">💗</span>
+        <span class="decor-heart">💖</span>
+        <span class="decor-heart">💕</span>
+      </div>
+
+      <div class="carta-container">
+        <!-- Envelope da carta -->
+        <div class="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <!-- Flap superior (tampa) -->
+            <div class="envelope-flap"></div>
+            <!-- Corpo do envelope -->
+            <div class="envelope-body"></div>
+            <!-- Flaps laterais -->
+            <div class="envelope-flap-left"></div>
+            <div class="envelope-flap-right"></div>
+          </div>
+
+          <!-- Papel da carta -->
+          <div class="letter" id="letter">
+            <div class="letter-content">
+              <h2>Feliz 4 meses, meu amor! 💖✨</h2>
+              <p>
+                Já fazem 121 dias desde que recebi o melhor presente que a vida
+                me deu: você. 🎁💗
+              </p>
+              <p>
+                Um presente cheio de amor, carinho e que me ama com todas as
+                forças. 🫶
+              </p>
+              <p style="margin-top: 1rem"></p>
+              <p>
+                Eu agradeço por cada instante ao seu lado, cada call 📞, cada
+                minuto jogando 🎮, conversando 🗣️, brigando 😣 e se entendendo
+                💞.
+              </p>
+              <p>
+                Esse último mês pode ter sido mais difícil, mas estamos aqui, e
+                isso é o que importa. 🤝❤️
+              </p>
+              <p style="margin-top: 1rem"></p>
+              <p>Todo o amor que eu sinto por você só se multiplicou. 💗</p>
+              <p>
+                Você é quem eu mais amo, quem vai cuidar do Davi comigo e
+                apanhar o coco do cimento 🤭.
+              </p>
+              <p style="margin-top: 1rem"></p>
+              <p>
+                Obrigado por ser minha gatinha 🐱 e por nunca ter desistido de
+                mim. 💘
+              </p>
+              <p>
+                Agora são 22:52 ⏰ e eu quis fazer algo mais surpreendente. 🎀
+              </p>
+              <p style="margin-top: 1rem"></p>
+              <p>Eu te amo. Feliz nossos 4 meses! 💐❤️🌙</p>
+            </div>
+          </div>
+
+          <!-- Container para os corações -->
+          <div class="hearts-container" id="hearts-container"></div>
+        </div>
+
+        <!-- Botões de controle -->
+        <div class="carta-controls">
+          <button class="btn-open" id="btnOpen">Abrir</button>
+          <button class="btn-close" id="btnClose">Fechar</button>
+        </div>
+
+        <!-- Controle de música -->
+        <div class="music-control">
+          <button class="music-toggle" id="musicToggle">
+            <span class="music-icon">🎵</span>
+            <span class="music-text">Música</span>
+          </button>
+          <audio id="backgroundMusic" loop>
+            <source src="../18.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+
+        <!-- Toggle modo noite -->
+        <button
+          class="night-mode-toggle"
+          id="nightModeToggle"
+          title="Modo Noite Romântico"
+        >
+          <span class="moon-icon">🌙</span>
+        </button>
+      </div>
+    </main>
+
+    <script src="../js/carta.js"></script>
+  </body>
+</html>

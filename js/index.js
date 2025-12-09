@@ -16,7 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Sistema de palavras flutuantes com brilho
   const palavras = ["aboba1", "aboba2", "aboba3", "aboba4"];
   const palavrasAtivas = [];
-  const maxPalavras = 4; // Número máximo de palavras visíveis simultaneamente
+  
+  // Ajustar número máximo de palavras baseado no tamanho da tela
+  function getMaxPalavras() {
+    if (window.innerWidth <= 480) return 2;
+    if (window.innerWidth <= 768) return 3;
+    return 4;
+  }
+  
+  let maxPalavras = getMaxPalavras();
 
   function criarPalavra(texto) {
     const palavra = document.createElement("div");
@@ -36,7 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!container) return true;
 
     const rect = container.getBoundingClientRect();
-    const margin = 50; // Margem de segurança ao redor do container
+    // Ajustar margem baseado no tamanho da tela
+    const isMobile = window.innerWidth <= 480;
+    const isTablet = window.innerWidth <= 768;
+    const margin = isMobile ? 30 : isTablet ? 40 : 50; // Margem de segurança ao redor do container
 
     // Verificar se a posição está dentro do container + margem
     if (
@@ -77,14 +88,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Posicionar apenas na metade superior (do início até metade da altura da viewport)
     const metadeAltura = window.innerHeight / 2;
 
-    // Margem horizontal
-    const marginHorizontal = 50;
-    const distanciaMinima = 200; // Distância mínima entre palavras (em pixels)
+    // Ajustar margens e distâncias baseado no tamanho da tela
+    const isMobile = window.innerWidth <= 480;
+    const isTablet = window.innerWidth <= 768;
+    
+    const marginHorizontal = isMobile ? 20 : isTablet ? 35 : 50;
+    const distanciaMinima = isMobile ? 120 : isTablet ? 160 : 200; // Distância mínima entre palavras (em pixels)
     const maxTentativas = 100; // Máximo de tentativas para encontrar uma posição válida
 
     // Posição Y aleatória entre o header e a metade da tela
-    const minY = headerHeight + 20;
-    const maxY = metadeAltura - 20;
+    const minY = headerHeight + (isMobile ? 15 : 20);
+    const maxY = metadeAltura - (isMobile ? 15 : 20);
     const maxX = window.innerWidth - marginHorizontal * 2;
 
     let randomX, randomY;
@@ -136,6 +150,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function iniciarAnimacaoPalavras() {
     // Função recursiva que mantém o loop contínuo e suave
     function cicloContinuo() {
+      // Atualizar maxPalavras baseado no tamanho atual da tela
+      maxPalavras = getMaxPalavras();
+      
       // Sempre verificar e adicionar palavras gradualmente
       if (palavrasAtivas.length < maxPalavras) {
         const textoAleatorio =
@@ -158,4 +175,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Iniciar animação
   iniciarAnimacaoPalavras();
+
+  // Ajustar palavras ao redimensionar a janela
+  let resizeTimeout;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function () {
+      // Atualizar maxPalavras e remover palavras extras se necessário
+      const novoMax = getMaxPalavras();
+      if (novoMax < palavrasAtivas.length) {
+        // Remover palavras extras se o limite diminuiu
+        const palavrasParaRemover = palavrasAtivas.length - novoMax;
+        for (let i = 0; i < palavrasParaRemover; i++) {
+          if (palavrasAtivas.length > 0) {
+            const palavra = palavrasAtivas.shift();
+            palavra.classList.remove("visible");
+            setTimeout(() => palavra.remove(), 500);
+          }
+        }
+      }
+      maxPalavras = novoMax;
+    }, 250);
+  });
 });

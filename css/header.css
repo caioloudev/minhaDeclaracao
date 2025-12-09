@@ -40,3 +40,57 @@ header {
 .nav-menu a:hover {
   color: var(--primary-color);
 }
+
+/* Responsividade do Header */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 1.5rem;
+  }
+
+  .nav-menu {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0.875rem 0;
+  }
+
+  .header-container {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.75rem 0;
+  }
+
+  .header-container {
+    padding: 0 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-menu {
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

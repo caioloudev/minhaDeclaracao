@@ -1,55 +1,268 @@
 /* Estilos específicos para a página inicial (home) */
 
+body.index-page {
+  background: #060606;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px
+    );
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.index-page header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #333333;
+  position: relative;
+  z-index: 10;
+}
+
+body.index-page header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px
+    );
+  background-size: 40px 40px, 30px 30px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+body.index-page .header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+body.index-page .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.index-page .heart-icon {
+  font-size: 1.6rem;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Corações decorativos */
+.decorative-hearts-index {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0.5;
+  overflow: hidden;
+}
+
+.decor-heart-index {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.08;
+  animation: floatHeart 8s ease-in-out infinite;
+  pointer-events: none;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+}
+
+.decor-heart-index:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 6s;
+}
+
+.decor-heart-index:nth-child(2) {
+  top: 40%;
+  right: 15%;
+  animation-delay: 2s;
+  animation-duration: 7s;
+}
+
+.decor-heart-index:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 1s;
+  animation-duration: 8s;
+}
+
+.decor-heart-index:nth-child(4) {
+  top: 60%;
+  right: 25%;
+  animation-delay: 3s;
+  animation-duration: 6.5s;
+}
+
+@keyframes floatHeart {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
 .hero-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.5rem 2rem;
+  padding: 2.5rem 3rem;
   border: 2px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 20px;
   margin: auto;
-  max-width: 400px;
-  transition: border-color 0.3s ease;
+  max-width: 450px;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(18, 18, 18, 0.9) 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-container:has(.btn-carta:hover) {
   border-color: var(--pink-baby);
+  box-shadow: 0 15px 40px rgba(245, 192, 208, 0.3),
+    0 0 60px rgba(245, 192, 208, 0.2);
+  transform: scale(1.02);
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(22, 22, 22, 0.95) 100%);
 }
 
 .hero-message {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .btn-carta {
-  background-color: var(--bg-elevated);
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-carta::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(245, 192, 208, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-carta:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-carta:hover {
-  background-color: var(--pink-baby);
+  background: linear-gradient(135deg, var(--pink-baby) 0%, #ffc0cb 100%);
   border-color: var(--pink-baby);
-  color: #0a0a0a; /* Texto escuro no hover para contraste */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 192, 208, 0.4);
+  color: #0a0a0a;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(245, 192, 208, 0.6),
+    0 0 40px rgba(245, 192, 208, 0.3);
 }
 
 .btn-carta:active {
-  transform: translateY(0);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-icon {
+  font-size: 1.4rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.btn-carta:hover .btn-icon {
+  transform: scale(1.2) rotate(10deg);
 }
 
 /* Estilos para palavras flutuantes com brilho */
@@ -84,14 +297,174 @@
   }
 }
 
+/* Textura matte escura no fundo */
+body.index-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.015) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+}
+
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 2.25rem 2.5rem;
+    max-width: 85%;
+  }
+
   .hero-message {
-    font-size: 1.25rem;
+    font-size: 1.65rem;
+    margin-bottom: 1.75rem;
   }
 
   .btn-carta {
-    padding: 0.875rem 2rem;
+    padding: 1.1rem 2.5rem;
+    font-size: 1.15rem;
+  }
+
+  body.index-page .logo {
+    font-size: 1.65rem;
+  }
+
+  body.index-page .heart-icon {
+    font-size: 1.5rem;
+  }
+
+  .floating-word {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body.index-page main {
+    padding: 2rem 1rem;
+  }
+
+  .hero-container {
+    padding: 2rem 2rem;
+    max-width: 90%;
+    border-radius: 16px;
+  }
+
+  .hero-message {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-carta {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  body.index-page .logo {
+    font-size: 1.5rem;
+  }
+
+  body.index-page .heart-icon {
+    font-size: 1.4rem;
+  }
+
+  .floating-word {
     font-size: 1rem;
+  }
+
+  .decor-heart-index {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body.index-page {
+    overflow-x: hidden;
+  }
+
+  body.index-page main {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .hero-container {
+    padding: 1.5rem 1.5rem;
+    max-width: 95%;
+    border-radius: 12px;
+    margin: 0 auto;
+  }
+
+  .hero-message {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-carta {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    border-radius: 40px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .btn-carta::before {
+    width: 200px;
+    height: 200px;
+  }
+
+  body.index-page .logo {
+    font-size: 1.2rem;
+    gap: 0.4rem;
+  }
+
+  body.index-page .heart-icon {
+    font-size: 1.2rem;
+  }
+
+  .floating-word {
+    font-size: 0.9rem;
+  }
+
+  .decor-heart-index {
+    font-size: 1.2rem;
+  }
+
+  .decor-heart-index:nth-child(1) {
+    top: 15%;
+    left: 5%;
+  }
+
+  .decor-heart-index:nth-child(2) {
+    top: 35%;
+    right: 10%;
+  }
+
+  .decor-heart-index:nth-child(3) {
+    bottom: 25%;
+    left: 15%;
+  }
+
+  .decor-heart-index:nth-child(4) {
+    top: 55%;
+    right: 20%;
   }
 }

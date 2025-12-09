@@ -1,0 +1,1206 @@
+/* Estilos específicos para a página da carta */
+
+body.carta-page {
+  background: linear-gradient(135deg, #e0f4ff 0%, #c8e8ff 50%, #b3dfff 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+body.carta-page::before {
+  content: "💖";
+  position: fixed;
+  top: 100px;
+  left: 50px;
+  font-size: 3rem;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+body.carta-page::after {
+  content: "💕";
+  position: fixed;
+  top: 200px;
+  right: 80px;
+  font-size: 2.5rem;
+  opacity: 0.15;
+  animation: float 8s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Nuvens de fundo (modo claro) */
+.clouds-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+body.carta-page.night-mode .clouds-container {
+  opacity: 0;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+.cloud::before {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: 10px;
+}
+
+.cloud::after {
+  width: 60px;
+  height: 60px;
+  top: -35px;
+  right: 10px;
+}
+
+/* Nuvem 1 */
+.cloud1 {
+  width: 100px;
+  height: 40px;
+  top: 15%;
+  left: -120px;
+  animation: cloudMove 25s linear infinite;
+}
+
+/* Nuvem 2 */
+.cloud2 {
+  width: 120px;
+  height: 45px;
+  top: 30%;
+  left: -150px;
+  animation: cloudMove 30s linear infinite;
+  animation-delay: -5s;
+}
+
+.cloud2::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 15px;
+}
+
+.cloud2::after {
+  width: 70px;
+  height: 70px;
+  top: -40px;
+  right: 15px;
+}
+
+/* Nuvem 3 */
+.cloud3 {
+  width: 80px;
+  height: 35px;
+  top: 50%;
+  left: -100px;
+  animation: cloudMove 20s linear infinite;
+  animation-delay: -10s;
+}
+
+.cloud3::before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 8px;
+}
+
+.cloud3::after {
+  width: 50px;
+  height: 50px;
+  top: -28px;
+  right: 8px;
+}
+
+/* Nuvem 4 */
+.cloud4 {
+  width: 110px;
+  height: 42px;
+  top: 65%;
+  left: -130px;
+  animation: cloudMove 28s linear infinite;
+  animation-delay: -15s;
+}
+
+.cloud4::before {
+  width: 55px;
+  height: 55px;
+  top: -27px;
+  left: 12px;
+}
+
+.cloud4::after {
+  width: 65px;
+  height: 65px;
+  top: -37px;
+  right: 12px;
+}
+
+/* Nuvem 5 */
+.cloud5 {
+  width: 90px;
+  height: 38px;
+  top: 80%;
+  left: -110px;
+  animation: cloudMove 22s linear infinite;
+  animation-delay: -8s;
+}
+
+.cloud5::before {
+  width: 45px;
+  height: 45px;
+  top: -22px;
+  left: 10px;
+}
+
+.cloud5::after {
+  width: 55px;
+  height: 55px;
+  top: -30px;
+  right: 10px;
+}
+
+@keyframes cloudMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
+}
+
+/* Camada de estrelas para modo noite */
+body.carta-page.night-mode {
+  position: relative;
+}
+
+body.carta-page.night-mode::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Estrelas grandes (2px) */ radial-gradient(
+      2px 2px at 10% 15%,
+      #fff,
+      transparent
+    ),
+    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+    radial-gradient(2px 2px at 35% 10%, #fff, transparent),
+    radial-gradient(2px 2px at 45% 45%, #fff, transparent),
+    radial-gradient(2px 2px at 55% 25%, #fff, transparent),
+    radial-gradient(2px 2px at 60% 70%, #fff, transparent),
+    radial-gradient(2px 2px at 70% 15%, #fff, transparent),
+    radial-gradient(2px 2px at 75% 55%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 35%, #fff, transparent),
+    radial-gradient(2px 2px at 85% 75%, #fff, transparent),
+    radial-gradient(2px 2px at 90% 40%, #fff, transparent),
+    radial-gradient(2px 2px at 95% 20%, #fff, transparent),
+    /* Estrelas médias (1.5px) */
+      radial-gradient(1.5px 1.5px at 15% 50%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 25% 65%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 30% 35%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 40% 80%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 50% 50%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 65% 30%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 70% 80%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 80% 60%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 88% 45%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 92% 85%, #fff, transparent),
+    /* Estrelas pequenas (1px) */
+      radial-gradient(1px 1px at 5% 25%, #fff, transparent),
+    radial-gradient(1px 1px at 12% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 18% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 22% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 90%, #fff, transparent),
+    radial-gradient(1px 1px at 33% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 38% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 42% 75%, #fff, transparent),
+    radial-gradient(1px 1px at 48% 55%, #fff, transparent),
+    radial-gradient(1px 1px at 52% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 58% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 62% 50%, #fff, transparent),
+    radial-gradient(1px 1px at 68% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 72% 40%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 90%, #fff, transparent),
+    radial-gradient(1px 1px at 82% 25%, #fff, transparent),
+    radial-gradient(1px 1px at 86% 65%, #fff, transparent),
+    radial-gradient(1px 1px at 93% 50%, #fff, transparent),
+    radial-gradient(1px 1px at 97% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 3% 45%, #fff, transparent),
+    radial-gradient(1px 1px at 7% 75%, #fff, transparent),
+    radial-gradient(1px 1px at 14% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 17% 95%, #fff, transparent),
+    radial-gradient(1px 1px at 23% 5%, #fff, transparent),
+    radial-gradient(1px 1px at 26% 65%, #fff, transparent),
+    radial-gradient(1px 1px at 32% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 37% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 43% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 47% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 53% 95%, #fff, transparent),
+    radial-gradient(1px 1px at 57% 10%, #fff, transparent),
+    radial-gradient(1px 1px at 63% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 67% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 73% 25%, #fff, transparent),
+    radial-gradient(1px 1px at 77% 70%, #fff, transparent),
+    radial-gradient(1px 1px at 83% 45%, #fff, transparent),
+    radial-gradient(1px 1px at 87% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 91% 85%, #fff, transparent),
+    radial-gradient(1px 1px at 96% 35%, #fff, transparent),
+    radial-gradient(1px 1px at 99% 65%, #fff, transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  animation: starsMove 30s linear infinite;
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Corações decorativos espalhados pela página */
+.decorative-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0.5;
+  overflow: hidden;
+}
+
+.decor-heart {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.12;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.decor-heart:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  font-size: 3rem;
+  animation-delay: 0s;
+  animation-duration: 6s;
+}
+
+.decor-heart:nth-child(2) {
+  top: 25%;
+  right: 15%;
+  font-size: 2.8rem;
+  animation-delay: 1s;
+  animation-duration: 7s;
+}
+
+.decor-heart:nth-child(3) {
+  top: 60%;
+  left: 8%;
+  font-size: 3.2rem;
+  animation-delay: 2s;
+  animation-duration: 8s;
+}
+
+.decor-heart:nth-child(4) {
+  bottom: 25%;
+  right: 12%;
+  font-size: 2.6rem;
+  animation-delay: 1.5s;
+  animation-duration: 9s;
+}
+
+.decor-heart:nth-child(5) {
+  top: 45%;
+  right: 25%;
+  font-size: 2.9rem;
+  animation-delay: 0.5s;
+  animation-duration: 7.5s;
+}
+
+.decor-heart:nth-child(6) {
+  bottom: 35%;
+  left: 20%;
+  font-size: 3.1rem;
+  animation-delay: 2.5s;
+  animation-duration: 8.5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+body.carta-page main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header romântico para a página da carta */
+body.carta-page header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #333333;
+  position: relative;
+  z-index: 10;
+}
+
+body.carta-page header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px
+    );
+  background-size: 40px 40px, 30px 30px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+body.carta-page .header-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.carta-page .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.carta-page .heart-icon {
+  font-size: 1.4rem;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+body.carta-page .nav-menu a {
+  color: #c2185b;
+  font-weight: 500;
+  position: relative;
+}
+
+body.carta-page .nav-menu a::before {
+  content: "💝";
+  margin-right: 0.3rem;
+  opacity: 0.7;
+}
+
+body.carta-page .nav-menu a:hover {
+  color: #e91e63;
+}
+
+body.carta-page .nav-menu a:hover::before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.carta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 35rem;
+}
+
+/* Envelope da carta */
+.envelope-wrapper {
+  position: relative;
+  width: 450px;
+  height: 320px;
+  margin: 0 auto;
+  perspective: 1200px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Corpo principal do envelope */
+.envelope-body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 250px;
+  background: linear-gradient(145deg, #ff4081 0%, #e91e63 50%, #ff4081 100%);
+  border-radius: 8px 8px 4px 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Flap superior (tampa) - formato triangular */
+.envelope-flap {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 170px;
+  background: linear-gradient(145deg, #ff6090 0%, #ff4081 50%, #ff6090 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 3;
+  box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.4),
+    inset 0 2px 8px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+}
+
+/* Flaps laterais */
+.envelope-flap-left,
+.envelope-flap-right {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 250px;
+  background: linear-gradient(145deg, #ff4081 0%, #e91e63 50%, #ff4081 100%);
+  z-index: 2;
+  border-radius: 4px;
+}
+
+.envelope-flap-left {
+  left: 50%;
+  transform: translateX(-100%);
+  clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3),
+    inset -2px 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.envelope-flap-right {
+  left: 50%;
+  clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3),
+    inset 2px 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Envelope aberto - flap se dobra para trás */
+.envelope.open .envelope-flap {
+  transform: translateX(-50%) rotateX(-160deg);
+}
+
+/* Papel da carta */
+.letter {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 340px;
+  max-height: 70vh; /* Limita altura máxima à 70% da viewport */
+  min-height: 200px;
+  background: linear-gradient(to bottom, #fffef7 0%, #ffffff 100%);
+  padding: 1.5rem;
+  border-radius: 2px;
+  box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4),
+    inset 0 0 0 1px rgba(255, 182, 193, 0.2);
+  z-index: 4;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  border: 2px solid rgba(255, 182, 193, 0.3);
+  border-radius: 8px;
+  overflow-y: auto; /* Permite scroll se o conteúdo for maior que a altura máxima */
+  overflow-x: hidden;
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 2px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 20px,
+    rgba(200, 0, 0, 0.1) 20px,
+    rgba(200, 0, 0, 0.1) 22px
+  );
+  opacity: 0.3;
+}
+
+.letter.open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-100px) rotateZ(-2deg); /* Reduzido para ficar mais próximo do envelope */
+  pointer-events: auto;
+}
+
+.letter-content {
+  color: #d81b60;
+  font-family: "Georgia", "Times New Roman", serif;
+  position: relative;
+  z-index: 1;
+}
+
+.letter-content h2 {
+  margin-bottom: 0.75rem;
+  color: #d81b60;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(216, 27, 96, 0.2);
+}
+
+.letter-content p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  font-size: 0.85rem;
+  text-align: left;
+  padding-left: 8px;
+  color: #d81b60;
+}
+
+/* Corações */
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #ff6b9d;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  user-select: none;
+}
+
+.heart.active {
+  animation: heartFloat 2s ease-out forwards;
+}
+
+@keyframes heartFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-120px) scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-250px) scale(0.3) rotate(360deg);
+  }
+}
+
+.hearts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 6;
+  overflow: hidden;
+}
+
+/* Botões de controle */
+.carta-controls {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.btn-open,
+.btn-close {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe4e9 100%);
+  color: #d81b60;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+}
+
+.btn-open:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+  color: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.5);
+  border-color: #ff91a4;
+}
+
+.btn-close:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+  color: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.5);
+  border-color: #ff91a4;
+}
+
+.btn-open:disabled,
+.btn-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Controle de música */
+.music-control {
+  margin-top: 1.5rem;
+}
+
+.music-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid #ffb6c1;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe4e9 100%);
+  color: #d81b60;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+}
+
+.music-toggle:hover {
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+  color: #c2185b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.5);
+  border-color: #ff91a4;
+}
+
+.music-toggle.playing {
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+  color: #c2185b;
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.5);
+}
+
+.music-icon {
+  font-size: 1.2rem;
+  animation: musicPulse 2s ease-in-out infinite;
+}
+
+.music-toggle.playing .music-icon {
+  animation: musicPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.music-text {
+  font-weight: 500;
+}
+
+#backgroundMusic {
+  display: none;
+}
+
+/* Toggle modo noite */
+.night-mode-toggle {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #ffb6c1;
+  background: linear-gradient(135deg, #ffffff 0%, #ffe4e9 100%);
+  color: #d81b60;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+  z-index: 100;
+}
+
+.night-mode-toggle:hover {
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.5);
+}
+
+.night-mode-toggle.active {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.moon-icon {
+  animation: moonRotate 3s ease-in-out infinite;
+}
+
+@keyframes moonRotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+/* Modo noite - fundo estrelado */
+body.carta-page.night-mode {
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+@keyframes starsMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+body.carta-page.night-mode::before {
+  opacity: 0.3;
+  filter: drop-shadow(0 0 8px rgba(255, 182, 193, 0.6));
+}
+
+body.carta-page.night-mode .decorative-hearts .decor-heart {
+  opacity: 0.3;
+  filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.5));
+}
+
+/* Partículas brilhantes (corações subindo continuamente) */
+.particle-heart {
+  position: fixed;
+  font-size: 1rem;
+  color: #ff6b9d;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  user-select: none;
+  filter: drop-shadow(0 0 5px rgba(255, 107, 157, 0.8));
+  animation: particleFloat 4s ease-out forwards;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0.3) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(1.2) rotate(360deg);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .carta-container {
+    margin-top: 32rem;
+    gap: 2.5rem;
+  }
+
+  .envelope-wrapper {
+    width: 400px;
+    height: 290px;
+  }
+
+  .envelope-body {
+    width: 360px;
+    height: 230px;
+  }
+
+  .envelope-flap {
+    width: 360px;
+    height: 155px;
+    top: 65px;
+  }
+
+  .envelope-flap-left,
+  .envelope-flap-right {
+    width: 180px;
+    height: 230px;
+  }
+
+  .letter {
+    width: 310px;
+    padding: 1.25rem;
+    max-height: 65vh;
+  }
+
+  .letter.open {
+    transform: translateX(-50%) translateY(-90px) rotateZ(-2deg);
+  }
+
+  .letter-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .letter-content p {
+    font-size: 0.85rem;
+    margin-bottom: 0.45rem;
+  }
+
+  body.carta-page .logo {
+    font-size: 1.5rem;
+  }
+
+  body.carta-page .heart-icon {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body.carta-page {
+    overflow-x: hidden;
+  }
+
+  .carta-container {
+    margin-top: 28rem;
+    gap: 2rem;
+    max-width: 95%;
+    padding: 0 1rem;
+  }
+
+  .envelope-wrapper {
+    width: 350px;
+    height: 260px;
+  }
+
+  .envelope-body {
+    width: 320px;
+    height: 200px;
+  }
+
+  .envelope-flap {
+    width: 320px;
+    height: 140px;
+    top: 60px;
+  }
+
+  .envelope-flap-left,
+  .envelope-flap-right {
+    width: 160px;
+    height: 200px;
+  }
+
+  .letter {
+    width: 280px;
+    min-height: 170px;
+    padding: 1.25rem;
+    max-height: 60vh;
+  }
+
+  .letter.open {
+    transform: translateX(-50%) translateY(-80px) rotateZ(-1deg);
+  }
+
+  .letter-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .letter-content p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+
+  .carta-controls {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn-open,
+  .btn-close {
+    width: 100%;
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .music-control {
+    margin-top: 1.25rem;
+  }
+
+  .music-toggle {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .night-mode-toggle {
+    top: 80px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  body.carta-page .logo {
+    font-size: 1.4rem;
+  }
+
+  body.carta-page .heart-icon {
+    font-size: 1.2rem;
+  }
+
+  .decor-heart {
+    font-size: 1.5rem;
+  }
+
+  .cloud {
+    opacity: 0.6;
+  }
+
+  .cloud1,
+  .cloud2,
+  .cloud3,
+  .cloud4,
+  .cloud5 {
+    animation-duration: 20s;
+  }
+}
+
+@media (max-width: 480px) {
+  body.carta-page {
+    overflow-x: hidden;
+  }
+
+  .carta-container {
+    margin-top: 24rem;
+    gap: 1.5rem;
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .envelope-wrapper {
+    width: 280px;
+    height: 210px;
+  }
+
+  .envelope-body {
+    width: 260px;
+    height: 165px;
+  }
+
+  .envelope-flap {
+    width: 260px;
+    height: 115px;
+    top: 50px;
+  }
+
+  .envelope-flap-left,
+  .envelope-flap-right {
+    width: 130px;
+    height: 165px;
+  }
+
+  .letter {
+    width: 230px;
+    min-height: 140px;
+    padding: 1rem;
+    bottom: 30px;
+    max-height: 55vh;
+  }
+
+  .letter.open {
+    transform: translateX(-50%) translateY(-70px) rotateZ(-1deg);
+  }
+
+  .letter-content h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .letter-content p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 0.35rem;
+    padding-left: 6px;
+  }
+
+  .letter::before {
+    left: 50px;
+  }
+
+  .carta-controls {
+    gap: 0.875rem;
+    max-width: 100%;
+  }
+
+  .btn-open,
+  .btn-close {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .music-control {
+    margin-top: 1rem;
+  }
+
+  .music-toggle {
+    padding: 0.65rem 1.15rem;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+
+  .music-icon {
+    font-size: 1.1rem;
+  }
+
+  .night-mode-toggle {
+    top: 70px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  body.carta-page .logo {
+    font-size: 1.2rem;
+    gap: 0.4rem;
+  }
+
+  body.carta-page .heart-icon {
+    font-size: 1.1rem;
+  }
+
+  .decor-heart {
+    font-size: 1.2rem;
+  }
+
+  .cloud {
+    opacity: 0.5;
+  }
+
+  .cloud1 {
+    width: 80px;
+    height: 32px;
+  }
+
+  .cloud2 {
+    width: 95px;
+    height: 36px;
+  }
+
+  .cloud3 {
+    width: 65px;
+    height: 28px;
+  }
+
+  .cloud4 {
+    width: 88px;
+    height: 34px;
+  }
+
+  .cloud5 {
+    width: 72px;
+    height: 30px;
+  }
+
+  body.carta-page::before,
+  body.carta-page::after {
+    font-size: 2rem;
+    opacity: 0.1;
+  }
+
+  body.carta-page::before {
+    top: 80px;
+    left: 30px;
+  }
+
+  body.carta-page::after {
+    top: 150px;
+    right: 50px;
+  }
+}
