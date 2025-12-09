@@ -3,27 +3,27 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Página index carregada");
 
-  // Exemplo: Adicionar interatividade ao botão
-  const btnCarta = document.querySelector(".btn-carta");
-
-  if (btnCarta) {
-    btnCarta.addEventListener("click", function (e) {
-      // Adicionar lógica de navegação ou animação aqui
-      console.log("Botão de carta clicado");
-    });
-  }
-
   // Sistema de palavras flutuantes com brilho
-  const palavras = ["aboba1", "aboba2", "aboba3", "aboba4"];
+  const palavras = [
+    "eu te amo meu principe dos saiyajins",
+    "vai ser a primeira vez que eu deixo meu estado pra ir morar no da pessoa que eu amo",
+    "quero um gato cinza pra chamar de cimento",
+    "a comida que eu quero por na boca ta com vc",
+    "cc = caio e carol",
+    "09/08 ❤️",
+    "será que teve puf na bea?",
+    "nao é puf?",
+    "eu, voce e davi",
+  ];
   const palavrasAtivas = [];
-  
+
   // Ajustar número máximo de palavras baseado no tamanho da tela
   function getMaxPalavras() {
     if (window.innerWidth <= 480) return 2;
     if (window.innerWidth <= 768) return 3;
     return 4;
   }
-  
+
   let maxPalavras = getMaxPalavras();
 
   function criarPalavra(texto) {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ajustar margens e distâncias baseado no tamanho da tela
     const isMobile = window.innerWidth <= 480;
     const isTablet = window.innerWidth <= 768;
-    
+
     const marginHorizontal = isMobile ? 20 : isTablet ? 35 : 50;
     const distanciaMinima = isMobile ? 120 : isTablet ? 160 : 200; // Distância mínima entre palavras (em pixels)
     const maxTentativas = 100; // Máximo de tentativas para encontrar uma posição válida
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function cicloContinuo() {
       // Atualizar maxPalavras baseado no tamanho atual da tela
       maxPalavras = getMaxPalavras();
-      
+
       // Sempre verificar e adicionar palavras gradualmente
       if (palavrasAtivas.length < maxPalavras) {
         const textoAleatorio =
